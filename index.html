@@ -1,7 +1,766 @@
-<!doctype html>
 <html>
-	<body>
-		<h1>Miha</h1>
-	</body>
+    <head>
+        <title>Charts</title>
+        <link rel="stylesheet" type="text/css" href="./build/pillow.css">
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="./build/standalone.js?v=1"></script>
+        <style type="text/css">
+            #column {
+                height: 200px;
+            }
+        </style>
+        <script>
+            $(function() {
+                var pie = new pillow.PieChart( {
+                    // size is and colours are set through CSS
+                    el   : $('#pie-chart'),
+                    data : [ 60, 22, 10, 8 ]
+                } );
+                pie.render();
 
+                var donut = new pillow.DonutChart( {
+                    el      : $('#donut'),
+                    height  : 200,
+                    width   : 200,
+                    data    : [ 60, 22, 10, 8 ]
+                } );
+                donut.render();
+
+                var tube = new pillow.TubeChart( {
+                    el          : $('#tube'),
+                    percentage  : 70.00,
+                    height      : 200,
+                    width       : 200
+                });
+                tube.render();
+				
+                var bigStopwatch = new pillow.Stopwatch( {
+                    el                  : $('#bigStopwatch'),
+                    time                : 0.65,
+                    displayMilliseconds : true,
+                    averageTime         : 10,
+                    title               : "AVG. TIME ON AD UNIT",
+                    animationDuration   : 1000,
+                    autoAnimate         : false
+                });
+                bigStopwatch.render();
+                setTimeout(function() {bigStopwatch.animate();}, 1000);
+
+                var mediumStopwatch = new pillow.Stopwatch( {
+                    el          : $('#mediumStopwatch'),
+                    time        : 51,
+                    averageTime : 60,
+                    title       : "AVG. TIME ON AD UNIT",
+                    subtitle    : "Suplier 1",
+                    autoAnimate : true
+                });
+                mediumStopwatch.render();
+
+                var smallStopwatch = new pillow.Stopwatch( {
+                    el                : $('#smallStopwatch'),
+                    time              : 44,
+                    averageTime       : 41,
+                    title             : "",
+                    subtitle          : "Suplier 2",
+                    animationDuration : 1000,
+                    autoAnimate       : false
+                });
+                smallStopwatch.render();
+                setTimeout(function() {smallStopwatch.animate();}, 3000);
+
+                var multiStopwatchBelow = new pillow.Stopwatch( {
+                    el                : $('#multiStopwatchBelow'),
+                    time              : 350,
+                    averageTime       : 400,
+                    title             : "AVG. TIME ON AD UNIT",
+                    animationDuration : 1000,
+                    autoAnimate       : false
+                });
+                multiStopwatchBelow.render();
+                setTimeout(function() {multiStopwatchBelow.animate();}, 4000);
+
+                var multiStopwatchAbove = new pillow.Stopwatch( {
+                    el                : $('#multiStopwatchAbove'),
+                    time              : 152,
+                    averageTime       : 120,
+                    title             : "AVG. TIME ON AD UNIT",
+                    animationDuration : 1000,
+                    autoAnimate       : false
+                });
+                multiStopwatchAbove.render();
+				setTimeout(function() {multiStopwatchAbove.animate();}, 5000);
+
+                var filmstrip = new pillow.FilmstripChart( {
+                    el         : $('#filmstrip'),
+                    percentage : 70.00,
+                    height     : 200,
+                    width      : 200
+                });
+                filmstrip.render();
+
+                var column = new pillow.ColumnChart( {
+                    el          : $('#column'),
+                    barMargin   : 3.5,
+                    data        : [
+                        { value: 40,    label: 'January'  },
+                        { value: 50,    label: 'February' },
+                        { value: 52.43, label: 'March'    },
+                        { value: 60,    label: 'April'    },
+                        { value: 75,    label: 'May'      },
+                        { value: 72,    label: 'June'     }
+                    ],
+                    unit        : '%',
+                    showAllTimeHigh : true
+                });
+                column.render();
+
+                var line = new pillow.LineChart( {
+                    el          : $('#line'),
+                    height      : 200,
+                    padding     : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 50,
+                        bottom      : 30
+                    },
+                    backgroundPadding : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 20,
+                        bottom      : 30
+                    },
+                    data : {
+                        series : [
+                            [ 
+                                { x: 0,   y: 33 },
+                                { x: 10,  y: 30 },
+                                { x: 20,  y: 35 },
+                                { x: 30,  y: 46 },
+                                { x: 40,  y: 62 },
+                                { x: 50,  y: 55 },
+                                { x: 60,  y: 70 },
+                                { x: 70,  y: 69 },
+                                { x: 80,  y: 65 },
+                                { x: 90,  y: 71 },
+                                { x: 100, y: 72 },
+                                { x: 110, y: 74 },
+                                { x: 120, y: 74 },
+                                { x: 130, y: 76 },
+                                { x: 140, y: 75 },
+                                { x: 150, y: 75 },
+                                { x: 160, y: 80 },
+                                { x: 170, y: 82 },
+                                { x: 180, y: 81 }
+                            ],
+                            [
+                                { x: 0,   y: 13 },
+                                { x: 10,  y: 20 },
+                                { x: 20,  y: 25 },
+                                { x: 30,  y: 36 },
+                                { x: 40,  y: 42 },
+                                { x: 50,  y: 45 },
+                                { x: 60,  y: 50 },
+                                { x: 70,  y: 69 },
+                                { x: 80,  y: 75 },
+                                { x: 90,  y: 81 },
+                                { x: 100, y: 62 },
+                                { x: 110, y: 54 },
+                                { x: 120, y: 44 },
+                                { x: 130, y: 96 },
+                                { x: 140, y: 102 },
+                                { x: 150, y: 90 },
+                                { x: 160, y: 100 },
+                                { x: 170, y: 72 },
+                                { x: 180, y: 61 },
+                            ]
+                        ],
+                        axes : {
+                            x : [ 
+                                { position: 30, label: 'January' },
+                                { position: 45, label: 'February'},
+                                { position: 75, label: 'March'   },
+                                { position: 105, label: 'April'  },
+                                { position: 135, label: 'May'    },
+                                { position: 165, label: 'June'   },
+                            ],
+                            y : [
+                                { position: 50,  label: '50%'    },
+                                { position: 100, label: '100%'   }
+                            ]
+                        },
+                        background : [ 0, 31, 59, 90, 120, 151],
+                        markers    : {
+                            x : [
+                                { position: 120, label: 'Q2' }
+                            ],
+                            y : [
+                                { position: 30,                     style: 'line'   },
+                                { position: 62, label: 'last year', style: 'dotted' },
+                                { position: 90, label: 'target',    style: 'dashed' }
+                            ]
+                        }
+                    },
+                    layout: {
+                        background  : { 
+                            text          : 'background text',
+                            textProps     : { 'font': '125px Avenir Next LT Pro Ultra Light', 'font-weight': 'regular', 'fill': '#dddddd' },
+                            paddingBottom : 40
+                        },
+                        bubble      : { image: { src: './build/img/analytics_bubble.png' } }
+                    },
+                    colors: {
+                        backgroundShade       : '#000000',
+                        backgroundAreaOpacity : 0.03
+                    }
+                });
+                line.render();
+
+                var lineSingleDay = new pillow.LineChart( {
+                    el          : $('#lineSingleDay'),
+                    height      : 200,
+                    padding     : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 50,
+                        bottom      : 30
+                    },
+                    backgroundPadding : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 20,
+                        bottom      : 30
+                    },
+                    data : {
+                        series : [
+                            [
+                                { x: 0,   y: 33 }
+                            ],
+                            [
+                                { x: 0,   y: 70 }
+                            ]
+                        ],
+                        axes : {
+                            x : [
+                                { position: 0, label: 'Fri' }
+                            ],
+                            y : [
+                                { position: 50,  label: '50%'    },
+                                { position: 100, label: '100%'   }
+                            ]
+                        }
+                    },
+                    layout: {
+                        bubble      : { image: { src: './build/img/analytics_bubble.png' } },
+                        datapoints: {
+                            radius  : 5,
+                            opacity : 0
+                        }
+                    },
+                    colors: {
+                        backgroundShade       : '#000000',
+                        backgroundAreaOpacity : 0.03
+                    }
+                });
+                lineSingleDay.render();
+
+                var lineSum = new pillow.LineChart( {
+                    el          : $('#lineSum'),
+                    height      : 200,
+                    padding     : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 50,
+                        bottom      : 30
+                    },
+                    backgroundPadding : {
+                        left        : 40,
+                        right       : 40,
+                        top         : 20,
+                        bottom      : 30
+                    },
+                    data : {
+                        series : [ 
+                            [
+                                { x: 0,   y: 86 },
+                                { x: 20,  y: 80 },
+                                { x: 30,  y: 88 },
+                                { x: 40,  y: 86 },
+                                { x: 50,  y: 84 },
+                                { x: 60,  y: 82 },
+                                { x: 70,  y: 89 },
+                                { x: 90,  y: 85 },
+                                { x: 100, y: 90 },
+                                { x: 120, y: 101 },
+                                { x: 130, y: 96 },
+                                { x: 150, y: 84 },
+                                { x: 160, y: 82 },
+                                { x: 180, y: 80 }
+                            ],
+                            [
+                                { x: 0,   y: 49 },
+                                { x: 20,  y: 45 },
+                                { x: 30,  y: 33 },
+                                { x: 40,  y: 36 },
+                                { x: 50,  y: 44 },
+                                { x: 60,  y: 50 },
+                                { x: 70,  y: 49 },
+                                { x: 90,  y: 51 },
+                                { x: 100, y: 52 },
+                                { x: 120, y: 54 },
+                                { x: 130, y: 56 },
+                                { x: 150, y: 55 },
+                                { x: 160, y: 50 },
+                                { x: 180, y: 54 }
+                            ],
+                            [
+                                { x: 0,   y: 20 },
+                                { x: 20,  y: 23 },
+                                { x: 30,  y: 20 },
+                                { x: 40,  y: 16 },
+                                { x: 50,  y: 18 },
+                                { x: 60,  y: 20 },
+                                { x: 70,  y: 39 },
+                                { x: 90,  y: 31 },
+                                { x: 100, y: 32 },
+                                { x: 120, y: 33 },
+                                { x: 130, y: 36 },
+                                { x: 150, y: 35 },
+                                { x: 160, y: 20 },
+                                { x: 180, y: 21 },
+                            ]
+                        ],
+                        axes : {
+                            x : [ 
+                                { position: 15, label: 'January' },
+                                { position: 45, label: 'February'},
+                                { position: 75, label: 'March'   },
+                                { position: 105, label: 'April'  },
+                                { position: 135, label: 'May'    },
+                                { position: 165, label: 'June'   },
+                            ],
+                            y : [
+                                { position: 50,  label: '50%'    },
+                                { position: 100, label: '100%'   }
+                            ]
+                        },
+                        background : [ 0, 31, 59, 90, 120, 151],
+                        markers    : {
+                            x : [
+                                { position: 120, label: 'Q2' }
+                            ],
+                            y : [
+                                { position: 62, label: 'last year' },
+                                { position: 90, label: 'target'    }
+                            ]
+                        }
+                    },
+                    layout: {
+                        noDataImage : { src: './build/img/chart_no_data.png' },
+                        bubble      : { image: { src: './build/img/analytics_bubble.png' } },
+                        points      : { opacity: 0 },
+                        series      : { stroke: '3px' }
+                    },
+                    colors: {
+                        series                : ['#5797be', '#88ccca', '#f7cd9c'],
+                        areaShadeFills        : ['#5797be', '#88ccca', '#f7cd9c'],
+                        backgroundShade       : '#000000',
+                        backgroundAreaOpacity : 0.03
+                    }
+                });
+                lineSum.render();
+
+                var area = new pillow.StackableAreaChart( {
+                    el      : $('#area'),
+                    height  : 300,
+                    padding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 60,
+                        bottom : 30
+                    },
+                    backgroundPadding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 20,
+                        bottom : 30
+                    },
+                    data : {
+                        series : [
+                            [
+                                { x: 0,   y: 50 },
+                                { x: 20,  y: 23 },
+                                { x: 30,  y: 7 },
+                                { x: 40,  y: 16 },
+                                { x: 50,  y: 32 },
+                                { x: 60,  y: 70 },
+                                { x: 70,  y: 69 },
+                                { x: 90,  y: 71 },
+                                { x: 100, y: 72 },
+                                { x: 120, y: 73 },
+                                { x: 130, y: 76 },
+                                { x: 150, y: 75 },
+                                { x: 160, y: 80 },
+                                { x: 180, y: 81 }
+                            ],
+                            [
+                                { x: 0,   y: 29 },
+                                { x: 20,  y: 55 },
+                                { x: 30,  y: 33 },
+                                { x: 40,  y: 36 },
+                                { x: 50,  y: 64 },
+                                { x: 60,  y: 7 },
+                                { x: 70,  y: 39 },
+                                { x: 90,  y: 31 },
+                                { x: 100, y: 42 },
+                                { x: 120, y: 94 },
+                                { x: 130, y: 126 },
+                                { x: 150, y: 25 },
+                                { x: 160, y: 130 },
+                                { x: 180, y: 54 }
+                            ],
+                            [
+                                { x: 0,   y: 16 },
+                                { x: 20,  y: 6  },
+                                { x: 30,  y: 58 },
+                                { x: 40,  y: 46 },
+                                { x: 50,  y: 34 },
+                                { x: 60,  y: 62 },
+                                { x: 70,  y: 69 },
+                                { x: 90,  y: 85 },
+                                { x: 100, y: 90 },
+                                { x: 120, y: 101 },
+                                { x: 130, y: 96 },
+                                { x: 150, y: 54 },
+                                { x: 160, y: 32 },
+                                { x: 180, y: 8 }
+                            ]
+                        ],
+                        axes : {
+                            x : [ 
+                                { position: 15, label: 'January' },
+                                { position: 45, label: 'February'},
+                                { position: 75, label: 'March'   },
+                                { position: 100, label: 'April'  },
+                                { position: 140, label: 'May'    },
+                                { position: 180, label: 'June'   }
+                            ],
+                            y : [
+                                { position: 175,  label: '175'   },
+                                { position: 350,  label: '350'   }
+                            ]
+                        },
+                        background : [ 31, 59, 80, 100],
+                        markers    : {
+                            x : [
+                                { position: 120, label: 'Q2' }
+                            ],
+                            y : [
+                                { position: 175,                     style: 'line',   opacity: '0.1' },
+                                { position: 300, label: 'last year', style: 'dotted', opacity: '0.5', width: '2px' },
+                                { position: 120, label: 'target',    style: 'dashed', opacity: '0.5' }
+                            ]
+                        }
+                    },
+                    colors: {
+                        xMinorAxis : '#000000'
+                    },
+                    layout: {
+                        noDataImage : { src: './build/img/chart_no_data.png' },
+                        bubble      : { image: { src: './build/img/ac4_analytics_bubble.png' } },
+                        axes: {
+                            x: { fitLabels: true },
+                            y: { offsetY: 20 }
+                        },
+                        highlightDataPointAreaOnMouseover: false
+                    }
+                });
+                area.render();
+
+                var highlightedAreaChart = new pillow.StackableAreaChart( {
+                    el      : $('#highlightedAreaChart'),
+                    height  : 300,
+                    padding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 60,
+                        bottom : 30
+                    },
+                    backgroundPadding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 20,
+                        bottom : 30
+                    },
+                    data : {
+                        series : [
+                            [
+                                { x: 0,   y: 50 },
+                                { x: 10,  y: 50 },
+                                { x: 20,  y: 23 },
+                                { x: 30,  y: 7 },
+                                { x: 40,  y: 16 },
+                                { x: 50,  y: 32 },
+                                { x: 60,  y: 70 },
+                                { x: 70,  y: 69 },
+                                { x: 80,  y: 71 },
+                                { x: 90,  y: 72 },
+                                { x: 100, y: 73 },
+                                { x: 110, y: 76 },
+                                { x: 120, y: 75 },
+                                { x: 130, y: 80 },
+                                { x: 140, y: 81 }
+                            ],
+                            [
+                                { x: 0,   y: 29 },
+                                { x: 10,  y: 40 },
+                                { x: 20,  y: 55 },
+                                { x: 30,  y: 33 },
+                                { x: 40,  y: 36 },
+                                { x: 50,  y: 64 },
+                                { x: 60,  y: 7 },
+                                { x: 70,  y: 39 },
+                                { x: 80,  y: 31 },
+                                { x: 90,  y: 42 },
+                                { x: 100, y: 94 },
+                                { x: 110, y: 126 },
+                                { x: 120, y: 25 },
+                                { x: 130, y: 130 },
+                                { x: 140, y: 54 }
+                            ],
+                            [
+                                { x: 0,   y: 16 },
+                                { x: 10,  y: 30 },
+                                { x: 20,  y: 6  },
+                                { x: 30,  y: 58 },
+                                { x: 40,  y: 46 },
+                                { x: 50,  y: 34 },
+                                { x: 60,  y: 62 },
+                                { x: 70,  y: 69 },
+                                { x: 80,  y: 85 },
+                                { x: 90,  y: 90 },
+                                { x: 100, y: 101 },
+                                { x: 110, y: 96 },
+                                { x: 120, y: 54 },
+                                { x: 130, y: 32 },
+                                { x: 140, y: 8 }
+                            ]
+                        ],
+                        axes : {
+                            x : [
+                                { position: 15, label: 'January' },
+                                { position: 45, label: 'February'},
+                                { position: 75, label: 'March'   },
+                                { position: 100, label: 'April'  },
+                                { position: 125, label: 'May'    }
+                            ],
+                            y : [
+                                { position: 175,  label: '175'   },
+                                { position: 350,  label: '350'   }
+                            ]
+                        },
+                        markers    : {
+                            x : [
+                                { position: 120, label: 'Q2' }
+                            ],
+                            y : [
+                                { position: 175,                     style: 'line',   opacity: '0.1' },
+                                { position: 300, label: 'last year', style: 'dotted', opacity: '0.5', width: '2px' },
+                                { position: 120, label: 'target',    style: 'dashed', opacity: '0.5' }
+                            ]
+                        }
+                    },
+                    colors: {
+                        xMinorAxis : '#000000'
+                    },
+                    layout: {
+                        noDataImage : { src: './build/img/chart_no_data.png' },
+                        bubble      : { image: { src: './build/img/ac4_analytics_bubble.png' } },
+                        axes: {
+                            x: { fitLabels: true },
+                            y: { offsetY: 20 }
+                        }
+                    }
+                });
+                highlightedAreaChart.render();
+
+                var areaSingleDay = new pillow.StackableAreaChart( {
+                    el      : $('#areaSingleDay'),
+                    height  : 300,
+                    padding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 60,
+                        bottom : 30
+                    },
+                    backgroundPadding : {
+                        left   : 60,
+                        right  : 60,
+                        top    : 20,
+                        bottom : 30
+                    },
+                    data : {
+                        series : [
+                            [
+                                { x: 0,   y: 50 }
+                            ],
+                            [
+                                { x: 0,   y: 100 }
+                            ],
+                            [
+                                { x: 0,   y: 120 }
+                            ]
+                        ],
+                        axes : {
+                            x : [
+                                { position: 0, label: 'Fri' }
+                            ],
+                            y : [
+                                { position: 175,  label: '175'   },
+                                { position: 350,  label: '350'   }
+                            ]
+                        },
+                    },
+                    colors: {
+                        xMinorAxis : '#000000'
+                    },
+                    layout: {
+                        bubble      : { image: { src: './build/img/ac4_analytics_bubble.png' } },
+                        axes: {
+                            x: { fitLabels: true },
+                            y: { offsetY: 20 }
+                        },
+                        datapoints: {
+                            radius  : 5,
+                            opacity : 0
+                        }
+                    }
+                });
+                areaSingleDay.render();
+
+                var sparkline = new pillow.SparklineChart( {
+                    el       : $('#sparkline'),
+                    data     : [12,14,15,16,18,20,22,25,30,25,22,18,32,35,40,45,55,32],
+                    maxValue : 80,
+                    width    : 200,
+                    height   : 50
+                } );
+                sparkline.render();
+
+                var cookie = new pillow.CookieChart( {
+                    el      : $('#cookie'),
+                    data    : 0.60,
+                    width   : 50,
+                    height  : 50
+                } );
+                cookie.render();
+
+                var bar = new pillow.BarChart( {
+                    el     : $('#bar'),
+                    sum    : 100,
+                    height : 20,
+                    width  : 200,
+                    data   : [ 
+                        { sessions: 60,  color: '#374e05' },
+                        { sessions: 100, color: '#c8d8a5' }
+                    ]
+                });
+                bar.render();
+
+                var gauge = new pillow.GaugeChart( {
+                    el          : $('#gauge'),
+                    label       : 'Expansion rate',
+                    max         : 5.60,
+                    avg         : 4.0,
+                    value       : 4.42,
+                    autoAnimate : true
+                });
+                gauge.render();
+
+                var gaugeOverflow = new pillow.GaugeChart( {
+                    el          : $('#gaugeOverflow'),
+                    label       : 'Conversion rate',
+                    max         : 100,
+                    avg         : 90,
+                    value       : 128,
+                    autoAnimate : true
+                });
+                gaugeOverflow.render();
+
+                var semicircleGauge = new pillow.SemicircleGaugeChart( {
+                    el          : $('#semicircle-gauge'),
+                    percentage  : 20,
+                    width       : 400,
+                    height      : 200
+                });
+                semicircleGauge.render();
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Pie Chart</h2>
+        <div id="pie-chart" class="pillow-pie"></div>    
+
+        <h2>Donut Chart</h2>
+        <div id="donut"></div>
+
+        <h2>Tube Chart</h2>
+        <div id="tube"></div>
+        
+        <h2>Big Stopwatch</h2>
+        <div id="bigStopwatch" class="pillow-stopwatch size-big grey"></div>
+        
+        <h2>Medium Stopwatch</h2>
+        <div id="mediumStopwatch" class="pillow-stopwatch size-medium light-blue"></div>
+        
+        <h2>Small Stopwatch</h2>
+        <div id="smallStopwatch" class="pillow-stopwatch size-small orange"></div>
+        
+        <h2>Multi minute Stopwatch Below Average</h2>
+        <div id="multiStopwatchBelow" class="pillow-stopwatch size-big"></div>
+        
+        <h2>Multi minute Stopwatch Above Average</h2>
+        <div id="multiStopwatchAbove" class="pillow-stopwatch size-big"></div>
+
+        <h2>Filmstrip</h2>
+        <div id="filmstrip"></div>
+
+        <h2>Column Chart</h2>
+        <div id="column"></div>
+
+        <h2>Line Chart</h2>
+        <div id="line"></div>
+
+        <h2>Single Day Line Chart</h2>
+        <div id="lineSingleDay"></div>
+
+        <h2>Line Chart Sum</h2>
+        <div id="lineSum"></div>
+
+        <h2>Area Chart</h2>
+        <div id="area"></div>
+
+        <h2>Area Chart with highlighted area around data points</h2>
+        <div id="highlightedAreaChart"></div>
+
+        <h2>Single Day Area Chart</h2>
+        <div id="areaSingleDay"></div>
+
+        <h2>Sparkline Chart</h2>
+        <div id="sparkline"></div>
+
+        <h2>Cookie Chart</h2>
+        <div id="cookie"></div>
+
+        <h2>Bar Chart</h2>
+        <div id="bar"></div>
+
+        <h2>Gauge</h2>
+        <div id="gauge" class="pillow-gauge normal-size"></div>
+
+        <h2>Gauge with Overflow</h2>
+        <div id="gaugeOverflow" class="pillow-gauge normal-size"></div>
+
+        <h2>Semicircle Gauge</h2>
+        <div id="semicircle-gauge"></div>
+    </body>
 </html>
